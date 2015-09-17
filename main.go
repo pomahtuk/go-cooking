@@ -2,7 +2,6 @@ package main
 
 import (
 	"./controllers/books"
-	"fmt"
 	"github.com/go-martini/martini"
 )
 
@@ -17,9 +16,9 @@ func main() {
 		return "Hello world!"
 	})
 
-	m.Get("/hello/(?P<name>[a-zA-Z]+)", func(params martini.Params) string {
-		return fmt.Sprintf("Hello %s", params["name"])
-	})
+	// m.Get("/hello/(?P<name>[a-zA-Z]+)", func(params martini.Params) string {
+	// 	return fmt.Sprintf("Hello %s", params["name"])
+	// })
 
 	m.Group("/books", func(r martini.Router) {
 		r.Get("/:id", books.GetBooks)
